@@ -66,16 +66,23 @@ extension Data: JSONEncodable {
     }
 }
 
-private let dateFormatter: DateFormatter = {
-    let fmt = DateFormatter()
-    fmt.dateFormat = Configuration.dateFormat
-    fmt.locale = Locale(identifier: "en_US_POSIX")
-    return fmt
-}()
+extension DateWithoutTime: JSONEncodable {
+    func encodeToJSON() -> Any {
+        return date.formatAsDate() as Any
+    }
+}
 
 extension Date: JSONEncodable {
     func encodeToJSON() -> Any {
-        return dateFormatter.string(from: self) as Any
+        return formatAsDate() as Any
+    }
+
+    func formatAsDateTime() -> String {
+        return Configuration.iso8601DateTimeFormatter.string(from: self)
+    }
+
+    func formatAsDate() -> String {
+        return Configuration.iso8601DateFormatter.string(from: self)
     }
 }
 

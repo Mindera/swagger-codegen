@@ -39,7 +39,7 @@ public class Swift4ModelTest {
         final CodegenProperty property1 = cm.vars.get(0);
         Assert.assertEquals(property1.baseName, "id");
         Assert.assertEquals(property1.datatype, "Int64");
-        Assert.assertEquals(property1.name, "_id");
+        Assert.assertEquals(property1.name, "id");
         Assert.assertNull(property1.defaultValue);
         Assert.assertEquals(property1.baseType, "Int64");
         Assert.assertTrue(property1.hasMore);
@@ -100,10 +100,10 @@ public class Swift4ModelTest {
 
         final CodegenProperty property7 = cm.vars.get(6);
         Assert.assertEquals(property7.baseName, "dateOfBirth");
-        Assert.assertEquals(property7.datatype, "Date");
+        Assert.assertEquals(property7.datatype, "DateWithoutTime");
         Assert.assertEquals(property7.name, "dateOfBirth");
         Assert.assertNull(property7.defaultValue);
-        Assert.assertEquals(property7.baseType, "Date");
+        Assert.assertEquals(property7.baseType, "DateWithoutTime");
         Assert.assertFalse(property7.hasMore);
         Assert.assertFalse(property7.required);
         Assert.assertTrue(property7.isNotContainer);

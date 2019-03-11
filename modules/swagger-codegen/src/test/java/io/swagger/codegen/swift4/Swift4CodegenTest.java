@@ -93,8 +93,8 @@ public class Swift4CodegenTest {
         final Operation p = model.getPaths().get(path).getPost();
         final CodegenOperation op = codegen.fromOperation(path, "post", p, model.getDefinitions());
 
-        Assert.assertEquals(op.returnType, "Date");
-        Assert.assertEquals(op.bodyParam.dataType, "Date");
+        Assert.assertEquals(op.returnType, "DateWithoutTime");
+        Assert.assertEquals(op.bodyParam.dataType, "DateWithoutTime");
     }
 
     @Test
